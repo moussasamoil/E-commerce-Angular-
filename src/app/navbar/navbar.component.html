@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+        <i class="fa-solid main-color fa-2x px-1 fa-cart-shopping"></i>
+        <a class="navbar-brand" href="#">FreshCart</a>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="home">Home</a>
+                </li>
+              
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="product">Products</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="categories">Categories</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="brand">Brands</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="allorders">Orders</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav align-items-center  ms-auto mt-2 mt-lg-0">
+
+                <li *ngIf="isLogin" class="nav-item ">
+                    <a routerLink="cart" class="nav-link position-relative">
+                        <i class="fa-solid main-color fa-2x px-1 fa-cart-shopping"></i>
+                        <span class="badge main-bg position-absolute top-0 end-0">{{catNumber}}</span>
+                    </a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link" routerLink="login">Login</a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link" routerLink="sinUp">Register</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a (click)="logout()" class="nav-link cursor-pointer">SignOut</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link cursor-pointer" routerLink="setting">
+                        <i class="fa-solid fa-gear"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

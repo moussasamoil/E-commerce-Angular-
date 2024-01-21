@@ -1,0 +1,30 @@
+<div class="row py-3">
+    <form  [formGroup]="userFrom">
+        <label for="details">details</label>
+        <input class="form-control pb-2" type="text" id="details" formControlName="details">
+        <div *ngIf="userFrom.get('details')?.errors && userFrom.get('details')?.touched" class="alert alert-danger">
+            <p *ngIf="userFrom.get('details')?.getError('required')">details is required</p>
+        </div>
+
+        <label for="phone">phone</label>
+        <input type="tel" class="form-control pb-2" id="phone" formControlName="phone">
+        <div *ngIf="userFrom.get('phone')?.errors && userFrom.get('phone')?.touched" class="alert alert-danger">
+            <p *ngIf="userFrom.get('phone')?.getError('required')">phone number is required</p>
+            <p *ngIf="userFrom.get('phone')?.getError('pattern')">only egyption number</p>
+        </div>
+        <label for="city">city</label>
+        <input type="text" class="form-control pb-2" id="city" formControlName="city">
+        <div *ngIf="userFrom.get('city')?.errors && userFrom.get('city')?.touched" class="alert alert-danger">
+            <p *ngIf="userFrom.get('city')?.getError('required')">city is required</p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button (click)="onlinePayment(userFrom)" class="btn main-bg text-white" [disabled]="userFrom.invalid" type="submit">
+                Online Payment
+            </button>
+            <button (click)="cashPayment(userFrom)" class="btn main-bg text-white" [disabled]="userFrom.invalid" type="submit">
+                Cash Payment
+            </button>
+        </div>
+    </form>
+</div>

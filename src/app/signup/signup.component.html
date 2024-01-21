@@ -1,0 +1,47 @@
+<div class="w-75 mx-auto">
+    <form (ngSubmit)="registeration(formRegister)" [formGroup]="formRegister">
+        <h3>Register </h3>
+         <div *ngIf="apiError" class="alert alert-danger">
+            {{apiError}}
+        </div> 
+        <label for="name">name :</label>
+        <input formControlName="name" type="text" class="form-control mb-2" id="name">
+        <div *ngIf="formRegister.get('name')?.errors && formRegister.get('name')?.touched" class="alert alert-danger">
+            <p *ngIf="formRegister.get('name')?.getError('minlength')" class="m-0">minmum length is 3</p>
+            <p *ngIf="formRegister.get('name')?.getError('maxlength')" class="m-0">maxLength is 10</p>
+            <p *ngIf="formRegister.get('name')?.getError('required')" class="m-0">name is requird</p>
+        </div>
+        <label for="email">email :</label>
+        <input formControlName="email" type="email" class="form-control mb-2" id="email">
+        <div *ngIf="formRegister.get('email')?.errors && formRegister.get('email')?.touched" class="alert alert-danger">
+            <p *ngIf="formRegister.get('email')?.getError('required')">email is requird</p>
+            <p *ngIf="formRegister.get('email')?.getError('email')">email is not valid</p>
+        </div>
+        <label for="password">password :</label>
+        <input formControlName="password" type="password" class="form-control mb-2" id="password">
+        <div *ngIf="formRegister.get('password')?.errors && formRegister.get('password')?.touched"
+            class="alert alert-danger">
+            <p *ngIf="formRegister.get('password')?.getError('pattern')">password should start with camail case and from
+                3 to 10 letters</p>
+            <p *ngIf="formRegister.get('password')?.getError('required')">password is required</p>
+        </div>
+        <label for="rePassword">rePassword :</label>
+        <input formControlName="rePassword" type="password" class="form-control mb-2" id="rePassword">
+        <div *ngIf="formRegister.get('rePassword')?.errors && formRegister.get('rePassword')?.touched"
+            class="alert alert-danger">
+            <p *ngIf="formRegister.get('rePassword')?.getError('pattern')">rePassword should start with camail case and
+                from 3 to 10 letters</p>
+            <p *ngIf="formRegister.get('rePassword')?.getError('required')">rePassword is required</p>
+        </div>
+        <label for="phone">phone :</label>
+        <input formControlName="phone" type="tel" class="form-control mb-2" id="phone">
+        <div *ngIf="formRegister.get('phone')?.errors && formRegister.get('phone')?.touched" class="alert alert-danger">
+            <p *ngIf="formRegister.get('phone')?.getError('required')">phone number is required</p>
+            <p *ngIf="formRegister.get('phone')?.getError('pattern')">only egyption number</p>
+        </div>
+        <button [disabled]="formRegister.invalid" class="border-0 btn main-bg text-white" type="submit">
+            <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoading">register</span>
+        </button>
+    </form>
+</div>

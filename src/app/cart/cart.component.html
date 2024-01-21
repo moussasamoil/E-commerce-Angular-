@@ -1,0 +1,44 @@
+
+<h3 class="fw-bold w-auto pt-3 fs-2">Cart Shop</h3>
+<div [ngClass]="{'d-none':isClear}" class="row pb-3 d-flex justify-content-end align-items-center">
+    <button (click)="clearCart()" class="btn btn-outline-danger w-auto">Clear Your Cart</button>
+</div>
+<div class="row " [ngClass]="{'d-none':isClear}">
+    <div class="d-flex  justify-content-between">
+        <h3 class="fw-bold">total price : <span
+                class="h3 fw-bold main-color px-2">{{cartProducts?.totalCartPrice|currency:'GBP'}}</span>
+        </h3>
+        <h3 class="fw-bold fs-2">Total Number Of Items :
+            <span class="h3 fw-bold main-color px-2">{{numOfCartItem}}</span>
+        </h3>
+    </div>
+
+</div>
+<div class="row py-3 align-items-center shadow " *ngFor="let item of cartProducts?.products">
+    <div class="col-md-2">
+        <img class="w-100" [src]="item?.product?.imageCover" alt="">
+    </div>
+    <div class="col-md-10 d-flex justify-content-between">
+        <div class="div">
+            <p>{{item?.product?.title}}</p>
+            <p class="main-color ">{{item?.price|currency:'GBP'}}</p>
+            <button (click)="removeProduct(item?.product?.id)" class="btn "> <i class="fa-solid fa-trash main-danger"></i> Remove
+            </button>
+        </div>
+        <div class="div  d-flex align-items-center">
+            <div>
+                <button (click)="UpdateCartProductQuantity(item?.product?.id,item?.count+1)" class="btn  fs-4 fw-bold btn-sm main-border">+</button>
+            </div>
+            <p class="h2 px-3 fw-bold ">{{item?.count}}</p>
+            <div>
+                <button  [disabled]="item?.count<=1" (click)="UpdateCartProductQuantity(item?.product?.id,item?.count-1)" class="btn fs-4 fw-bold btn-sm main-border">-</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row py-2" [ngClass]="{'d-none':isClear}" >
+    <button (click)="checkOut()"  class="shadow btn main-bg text-white w-auto">ckeckout</button>
+</div>
+<div class="row py-3">
+    <p class="fw-bold fs-3"  *ngIf="cartProducts==null">Cart Is Empyte</p>
+</div>

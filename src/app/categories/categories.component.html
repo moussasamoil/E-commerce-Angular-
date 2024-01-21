@@ -1,0 +1,12 @@
+<div class="row pt-5">
+ 
+    <div class="col-md-4 cat p-3" *ngFor="let categore of categories">
+       <a >
+        <div class="inner ">
+            <img class="w-100" [src]="categore?.image" alt="">
+            <h3 class="text-center p-3">{{categore?.name}}</h3>
+        </div>
+       </a>
+    </div>
+  
+</div>

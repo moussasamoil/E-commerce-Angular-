@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Encode+Sans+Expanded:wght@300&family=Fira+Sans&family=Gideon+Roman&family=PT+Serif&family=Roboto&display=swap');
+
+:root {
+    --main-color: #0AAD0A;
+    --font-family: 'Encode Sans Expanded', sans-serif;
+    --shadow: 0 2px 4px 0 rgba(9, 79, 23, 0.505), 0 3px 10px 0 rgba(22, 102, 7, 0.532);
+    --rate-product: #ffff00;
+    --danger:rgb(246,61,82);
+}
+
+body {
+    font-family: var(--font-family);
+}
+
+.main-bg {
+    background-color: var(--main-color) !important;
+}
+.row .product a{
+    text-decoration: none;
+}
+
+.main-color {
+    color: var(--main-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.rate {
+    color: var(--rate-product);
+}
+
+.smallSize {
+    font-size: 14px;
+}
+
+.product .btn {
+    transition: transform 1s, opacity 1s;
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.product:hover .btn {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.product:hover .inner {
+    box-shadow: var(--shadow);
+}
+
+.shadow {
+    box-shadow: var(--shadow);
+}
+.main-danger{
+    color: var(--danger);
+}
+
+
+.main-border {
+    border: solid 2px var(--main-color) !important;
+}
