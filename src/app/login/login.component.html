@@ -17,9 +17,14 @@
             <p *ngIf="loginForm.get('password')?.getError('pattern')">password should start with camal case and from 3
                 to 10 letters</p>
         </div>
-        <button class="btn main-bg" type="submit">
-            <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
-            <span *ngIf="!isLoading">login</span>
-        </button>
+       <div class="d-flex justify-content-between">
+            <button class="btn main-bg" type="submit">
+                <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
+                <span *ngIf="!isLoading">login</span>
+            </button>
+            <div class="py-3">
+                <a class="cursor-pointer unstyled text-white" routerLink="/sinUp">Sign Up</a>
+            </div>
+        </div>
     </form>
 </div>
