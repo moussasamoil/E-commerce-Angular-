@@ -12,7 +12,11 @@
 body {
     font-family: var(--font-family);
 }
-
+.login-container {
+    background-color: #ccd3da; 
+    height: auto; 
+  
+}
 .main-bg {
     background-color: var(--main-color) !important;
 }

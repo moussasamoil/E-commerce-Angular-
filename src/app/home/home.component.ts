@@ -39,9 +39,7 @@ export class HomeComponent implements OnInit {
     this._CartService.getAddCartItems().subscribe({
       next: (response) => {
         this._CartService.userId.next(response.data.cartOwner)
-        this._CartService.numOfCartItems.next(response.numOfCartItems);
-        console.log(response);
-      },
+        this._CartService.numOfCartItems.next(response.numOfCartItems); },
       error: (err) => {
         const message = err.error.message;
         const colonIndex = message.indexOf(':');

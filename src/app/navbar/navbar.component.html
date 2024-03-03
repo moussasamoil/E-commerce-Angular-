@@ -1,9 +1,79 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container">
+        <div class="navbar-brand  d-flex align-items-center">
+            <i class="fas fa-shopping-cart fa-2x me-1 main-color"></i>
+            FreshCart
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ng-container *ngIf="isLogin">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="product">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="brand">Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="main-bg text-white" routerLink="allorders">Orders</a>
+                    </li>
+                </ng-container>
+            </ul>
+            <ul class="navbar-nav ">
+                <li *ngIf="isLogin" class="nav-item ">
+                    <a routerLink="cart" class="nav-link position-relative">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-shopping-cart fa-2x ms-0 main-color"></i>
+                            <span class="badge bg-primary position-absolute top-0 left-0">{{catNumber}}</span>
+                        </div>
+                    </a>
+                </li>
+                
+                
+                
+                
+                <ng-container *ngIf="!isLogin">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="sinUp">Sign Up</a>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="isLogin">
+                    <li  class="nav-item">
+                        <a (click)="logout()" class="nav-link cursor-pointer">SignOut</a>
+                    </li>
+                    <li  class="nav-item">
+                        <a class="nav-link cursor-pointer" routerLink="setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </a>
+                    </li>
+                 </ng-container>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
         <ul class=" me-auto mt-2 mt-lg-0">
             <i class="fa-solid main-color fa-2x px-1 fa-cart-shopping"></i>
             <a class="navbar-brand" href="#">FreshCart</a>
         </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
         <div class="collapse navbar-collapse " id="collapsibleNavId">
             <ng-container *ngIf="isLogin">
@@ -57,4 +127,4 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav>   -->
