@@ -3,25 +3,26 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-
   userData = new BehaviorSubject(null);
   userToken: any;
 
   constructor(private _HttpClient: HttpClient, private _Router: Router) {
-    if (typeof localStorage !== 'undefined' && localStorage !== null) {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
       this.getDecodedData();
     }
   }
+
   getDecodedData(): void {
-    if (localStorage.getItem('userToken') !== null) {
-      let encodedData = JSON.stringify(localStorage.getItem('userToken'));
-      let decodedData: any = jwtDecode(encodedData);
+    const token = localStorage.getItem('userToken');
+    if (token) {
+      let decodedData: any = jwtDecode(token);
       this.userData.next(decodedData);
-      this.userToken = localStorage.getItem('userToken');
+      this.userToken = token;
     }
   }
 
@@ -34,8 +35,8 @@ export class AuthService {
   register(userData: object): Observable<any> {
     return this._HttpClient.post('https://ecommerce.routemisr.com/api/v1/auth/signup', userData);
   }
-  login(userData: object): Observable<any> {
-    return this._HttpClient.post('https://ecommerce.routemisr.com/api/v1/auth/signin', userData)
-  }
 
+  login(userData: object): Observable<any> {
+    return this._HttpClient.post('https://ecommerce.routemisr.com/api/v1/auth/signin', userData);
+  }
 }
