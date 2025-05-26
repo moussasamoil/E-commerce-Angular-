@@ -1,0 +1,105 @@
+/* Container and Form */
+.container.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 20px;
+}
+
+.form-container {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-container h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #333;
+  text-align: center;
+}
+
+/* Labels and Inputs */
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #5b9bd5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.2);
+}
+
+/* Error messages */
+.alert {
+  border: none;
+  background: #ffe5e5;
+  color: #b30000;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  background-color: #5b9bd5;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #4a8ac7;
+}
+
+button[type="submit"]:disabled {
+  background-color: #a4c2e0;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.fa-spinner {
+  margin-right: 8px;
+}
+
+/* Sign Up link */
+.mt-3 p {
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+}
+
+.mt-3 span[routerLink] {
+  color: #5b9bd5;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.mt-3 span[routerLink]:hover {
+  color: #4177b2;
+}

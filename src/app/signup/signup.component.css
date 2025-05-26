@@ -1,0 +1,93 @@
+/* Registration Container */
+.container.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 20px;
+}
+
+/* Registration Form */
+form {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 500px;
+  transition: all 0.3s ease-in-out;
+}
+
+form h3 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #333;
+}
+
+/* Labels and Inputs */
+form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+  margin-top: 16px;
+}
+
+form input.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s;
+  margin-bottom: 8px;
+}
+
+form input.form-control:focus {
+  border-color: #5b9bd5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.2);
+}
+
+/* Error alert styling */
+.alert {
+  border: none;
+  background: #ffe5e5;
+  color: #b30000;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 24px;
+  background-color: #5b9bd5;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #4a8ac7;
+}
+
+button[type="submit"]:disabled {
+  background-color: #a4c2e0;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.fa-spinner {
+  margin-right: 8px;
+}
